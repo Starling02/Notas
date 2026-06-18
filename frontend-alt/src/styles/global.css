@@ -1,0 +1,246 @@
+/* =========================================================================
+   Version B - Tema editorial calido, oscuro por defecto.
+   Diferenciacion vs Version A (indigo + sidebar):
+   - Paleta ambar/ember sobre carbon calido (no indigo/gris frio).
+   - Tipografia serif (Fraunces) para titulos -> sensacion "diario/revista".
+   - Layout de columna unica centrada tipo cuaderno, sin sidebar.
+   ========================================================================= */
+
+:root {
+  /* Carbon calido en vez de gris azulado */
+  --bg: #17130f;
+  --bg-soft: #1f1a14;
+  --surface: #241e17;
+  --surface-2: #2c251c;
+  --border: #3a3128;
+  --border-soft: #2e2820;
+
+  --text: #f3ece0;
+  --text-soft: #c8bca9;
+  --text-mute: #8f8472;
+
+  /* Acento ambar/ember */
+  --accent: #e6a23c;
+  --accent-strong: #f0b450;
+  --accent-deep: #b97e1f;
+  --accent-glow: rgba(230, 162, 60, 0.18);
+
+  /* Secundario verde esmeralda apagado, para contraste de etiquetas */
+  --emerald: #5fb88a;
+
+  --danger: #d9694f;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  --maxw: 760px;
+}
+
+/* Modo claro opcional (alterna con data-theme="light") */
+[data-theme='light'] {
+  --bg: #f6f0e6;
+  --bg-soft: #efe7d8;
+  --surface: #fffaf2;
+  --surface-2: #f5ecdd;
+  --border: #e2d6c2;
+  --border-soft: #ece1cf;
+  --text: #2a2118;
+  --text-soft: #5c5040;
+  --text-mute: #8a7c66;
+  --accent: #c4801b;
+  --accent-strong: #a96c12;
+  --accent-deep: #8a560c;
+  --accent-glow: rgba(196, 128, 27, 0.16);
+  --emerald: #2f8a5c;
+  --shadow: 0 10px 30px -16px rgba(120, 90, 40, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, var(--accent-glow), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+.serif {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* --- Focus visible accesible y consistente --- */
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* --- Inputs base --- */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.8rem;
+  width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-mute);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  outline: none;
+}
+
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--surface-2);
+  color: var(--text);
+  border-color: var(--border);
+  transition: transform 0.08s, background 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  background: var(--surface);
+  border-color: var(--accent-deep);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent-deep));
+  color: #1a1209;
+  border-color: var(--accent-deep);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+  border-color: var(--accent-deep);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-soft);
+}
+
+.btn-ghost:hover {
+  background: var(--surface-2);
+  border-color: var(--border-soft);
+}
+
+.btn-danger {
+  color: var(--danger);
+  border-color: transparent;
+  background: transparent;
+}
+
+.btn-danger:hover {
+  background: rgba(217, 105, 79, 0.12);
+  border-color: rgba(217, 105, 79, 0.4);
+}
+
+.btn-icon {
+  padding: 0.45rem;
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Layout columna unica tipo diario --- */
+.shell {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+
+.muted {
+  color: var(--text-mute);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
