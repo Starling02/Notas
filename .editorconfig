@@ -1,0 +1,48 @@
+# EditorConfig — https://editorconfig.org
+# Reglas de estilo de archivo unificadas para todo el monorepo.
+root = true
+
+# Valores por defecto para todos los archivos
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Python (backend) — PEP 8
+[*.py]
+indent_size = 4
+max_line_length = 88
+
+# JavaScript / TypeScript / Svelte / Vue (frontends)
+[*.{js,jsx,ts,tsx,svelte,vue,mjs,cjs}]
+indent_size = 2
+
+# Estilos
+[*.{css,scss,less,html}]
+indent_size = 2
+
+# Datos / config
+[*.{json,yml,yaml,toml}]
+indent_size = 2
+
+# Markdown — no recortar espacios finales (saltos de línea con dos espacios)
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Makefiles requieren tabuladores
+[Makefile]
+indent_style = tab
+
+# Scripts de shell
+[*.sh]
+indent_size = 2
+end_of_line = lf
+
+# Archivos batch de Windows
+[*.{bat,cmd}]
+end_of_line = crlf
