@@ -1,3 +1,5 @@
+import ThemeToggle from './ThemeToggle'
+
 // Barra superior del dashboard: boton de menu (movil), busqueda en vivo, contador.
 export default function Topbar({ query, onQueryChange, onOpenMenu, count, activeTag }) {
   return (
@@ -53,6 +55,7 @@ export default function Topbar({ query, onQueryChange, onOpenMenu, count, active
         <span className="topbar__count">
           {count} {count === 1 ? 'nota' : 'notas'}
         </span>
+        <ThemeToggle />
       </div>
     </header>
   )

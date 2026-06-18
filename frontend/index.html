@@ -7,6 +7,17 @@
     <meta name="theme-color" content="#6366F1" />
     <meta name="description" content="Notas — captura tus ideas, organizadas con etiquetas y color." />
     <title>Notas</title>
+    <script>
+      // Aplica el tema guardado antes del render para evitar parpadeo (FOUC).
+      (function () {
+        try {
+          var t = localStorage.getItem('notas-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

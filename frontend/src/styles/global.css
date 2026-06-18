@@ -46,10 +46,34 @@
 
   --t-fast: 120ms ease;
   --t: 180ms ease;
+
+  color-scheme: light;
+}
+
+/* Variables del tema oscuro. Se aplican cuando <html data-theme="dark">,
+   y tambien por defecto si el sistema esta en oscuro y el usuario aun no eligio
+   (html sin data-theme). El toggle fija data-theme y persiste la eleccion. */
+:root[data-theme='dark'] {
+  --bg: #0f1117;
+  --surface: #181b24;
+  --surface-2: #1f2430;
+  --border: #2a3040;
+  --border-strong: #3a4154;
+  --text: #eceef5;
+  --text-soft: #b9bed0;
+  --text-muted: #858ba3;
+  --indigo-50: #1d2030;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.6);
+  --danger-soft: #3a1f29;
+
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #0f1117;
     --surface: #181b24;
     --surface-2: #1f2430;
@@ -57,13 +81,15 @@
     --border-strong: #3a4154;
     --text: #eceef5;
     --text-soft: #b9bed0;
-    --text-muted: #858bA3;
+    --text-muted: #858ba3;
     --indigo-50: #1d2030;
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.6);
     --danger-soft: #3a1f29;
+
+    color-scheme: dark;
   }
 }
 
@@ -265,6 +291,7 @@ a:hover {
 
 /* =========================== Auth ==================================== */
 .auth {
+  position: relative;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -1158,6 +1185,14 @@ a:hover {
   .content {
     padding: 1.1rem;
   }
+}
+
+/* Toggle de tema en la pantalla de login/registro */
+.auth__theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
 }
 
 @media (prefers-reduced-motion: reduce) {

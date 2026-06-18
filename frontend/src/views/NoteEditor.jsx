@@ -5,6 +5,7 @@ import { useToast } from '../context/ToastContext'
 import TagInput from '../components/TagInput'
 import ColorPicker from '../components/ColorPicker'
 import ConfirmDialog from '../components/ConfirmDialog'
+import ThemeToggle from '../components/ThemeToggle'
 import Spinner from '../components/Spinner'
 import { FullPageSpinner } from '../components/Spinner'
 import { renderMarkdown } from '../lib/markdown'
@@ -79,10 +80,10 @@ export default function NoteEditor() {
         pinned: note.pinned
       }
       if (isNew) {
-        const created = await notesApi.create(payload)
+        await notesApi.create(payload)
         toast.success('Nota creada.')
         setBaseline(note)
-        navigate(`/notes/${created.id}`, { replace: true })
+        navigate('/', { replace: true })
       } else {
         const saved = await notesApi.update(id, payload)
         setBaseline(note)
@@ -147,6 +148,7 @@ export default function NoteEditor() {
           {!isNew && updatedAt && (
             <span className="editor__saved-at">Editada {formatRelative(updatedAt)}</span>
           )}
+          <ThemeToggle />
           <button
             type="button"
             className={`btn btn--ghost btn--icon ${note.pinned ? 'is-active' : ''}`}

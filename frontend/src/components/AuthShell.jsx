@@ -1,7 +1,12 @@
+import ThemeToggle from './ThemeToggle'
+
 // Layout split-screen para Login/Register: panel de marca + tarjeta de formulario.
 export default function AuthShell({ title, subtitle, children }) {
   return (
     <div className="auth">
+      <div className="auth__theme-toggle">
+        <ThemeToggle />
+      </div>
       <aside className="auth__aside" aria-hidden="true">
         <div className="auth__brand">
           <span className="brand-mark">
