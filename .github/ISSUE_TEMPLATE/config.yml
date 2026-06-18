@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Preguntas y discusiones
+    url: https://github.com/OWNER/notas/discussions
+    about: Para dudas generales, ideas y soporte usa las Discussions (no abras un issue).
+  - name: 📚 Documentación
+    url: https://github.com/OWNER/notas/tree/main/docs
+    about: Consulta la arquitectura, el diseño y el roadmap antes de abrir un issue.
+  - name: 🔐 Reporte de seguridad
+    url: https://github.com/OWNER/notas/security/advisories/new
+    about: Reporta vulnerabilidades de forma privada (no abras un issue público).
