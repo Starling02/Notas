@@ -30,7 +30,7 @@ jobs:
         working-directory: backend
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Comprobar que existe backend/
         id: check
@@ -77,7 +77,7 @@ jobs:
         dir: [frontend, frontend-alt]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: ¿Existe ${{ matrix.dir }}/package.json?
         id: check
